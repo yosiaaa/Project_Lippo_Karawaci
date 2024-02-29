@@ -1,4 +1,5 @@
-#Tugas Algoritma & Database SQL Query
+Tugas Algoritma & Database SQL Query
+------------------------------------
 
 Algoritma #1
 ------------
