@@ -1,0 +1,43 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+
+<h2 class="text-center mb-5">Payment Allocation</h2>
+
+@using (Html.BeginForm("AllocatePayment", "Home", FormMethod.Post))
+{
+	<div class="d-flex justify-content-center align-items-center gap-2">
+		<label for="payment">Input Payment:</label>
+		<input type="number" name="payment" id="payment" required step="any" min="0" />
+		<button type="submit" class="rounded-1">Allocate Payment</button>
+	</div>
+}
+
+@if (ViewBag.Message != null)
+{
+	<p>@ViewBag.Message</p>
+}
+
+@if (ViewBag.Tagihans != null)
+{
+	<div class="mt-3">
+
+		<table class="table table-bordered border border-2">
+			<tr class="border border-2">
+				<th>Tagihan</th>
+				<th>Due Date</th>
+				<th>Amount</th>
+				<th>Remaining Amount</th>
+			</tr>
+			@foreach (var tagihan in ViewBag.Tagihans)
+			{
+				<tr class="border">
+					<td>Tagihan #@tagihan.Nomor</td>
+					<td>@tagihan.DueDate.ToShortDateString()</td>
+					<td>@tagihan.Amount</td>
+					<td>@tagihan.RemainingAmount</td>
+				</tr>
+			}
+		</table>
+	</div>
+}
